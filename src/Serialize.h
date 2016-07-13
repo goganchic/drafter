@@ -142,6 +142,7 @@ namespace drafter {
 
         // Literal to Bool
         static const std::string True;
+        static const std::string False;
 
         // Refract MSON generic element
         static const std::string Generic;

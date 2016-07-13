@@ -2,6 +2,11 @@
 
 ## Master
 
+### Enhancements
+
+* Drafter will now emit a warning when you use an invalid boolean value that is
+  not `true` or `false`.
+
 ### Bug Fixes
 
 * Ensure that sample values are rendered in JSON Schema when using the `fixed`

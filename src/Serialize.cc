@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Apiary Inc. All rights reserved.
 //
 
+#include "SourceAnnotation.h"
 #include "Serialize.h"
 #include "StringUtility.h"
 
@@ -89,6 +90,7 @@ const std::string SerializeKey::TypeAttributes = "typeAttributes";
 const std::string SerializeKey::Optional = "optional";
 const std::string SerializeKey::Fixed = "fixed";
 const std::string SerializeKey::True = "true";
+const std::string SerializeKey::False = "false";
 const std::string SerializeKey::Generic = "generic";
 const std::string SerializeKey::Enum = "enum";
 const std::string SerializeKey::Ref = "ref";
@@ -122,7 +124,13 @@ namespace drafter {
     template <>
     bool LiteralTo<bool>(const mson::Literal& literal)
     {
-        return literal == SerializeKey::True;
+        if (literal == SerializeKey::True) {
+            return true;
+        } else if (literal == SerializeKey::False) {
+            return false;
+        }
+
+        throw snowcrash::Warning("Invalid boolean value `" + literal + "`. Should be either true or false.");
     }
 
     template <>

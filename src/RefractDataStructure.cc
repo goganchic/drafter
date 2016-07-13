@@ -723,7 +723,11 @@ namespace drafter {
         ElementData<ElementType> data;
         ElementType* element = new ElementType;
 
-        ExtractValueMember<ElementType>(data, context, defaultNestedType)(value);
+        try {
+            ExtractValueMember<ElementType>(data, context, defaultNestedType)(value);
+        } catch (snowcrash::Warning &warning) {
+            context.warnings.push_back(snowcrash::Warning(warning.message, snowcrash::MSONError, value.sourceMap->sourceMap));
+        }
 
         size_t valuesCount = data.values.size();
 
