@@ -495,6 +495,9 @@ namespace drafter {
         else if (element.node->category == snowcrash::Element::DataStructureGroupCategory) {
             category->meta[SerializeKey::Classes] = CreateArrayElement(SerializeKey::DataStructures);
         }
+        else if (element.node->category == snowcrash::Element::ResourcePrototypesGroupCategory) {
+            category->meta[SerializeKey::Classes] = CreateArrayElement(SerializeKey::ResourcePrototypes);
+        }
 
         if (!element.node->content.elements().empty()) {
             const NodeInfo<snowcrash::Elements> elementsNodeInfo = MakeNodeInfo(&element.node->content.elements(), GetElementChildrenSourceMap(element));
@@ -508,6 +511,39 @@ namespace drafter {
         return category;
     }
 
+    refract::IElement* ResourcePrototypeToRefract(const NodeInfo<snowcrash::Element>& element, ConversionContext& context)
+    {
+        refract::ArrayElement* resourcePrototype = new refract::ArrayElement;
+        RefractElements content;
+
+        auto respIt = element.node->content.resourcePrototype.responses.begin();
+        auto smIt = element.sourceMap->content.resourcePrototype.responses.collection.begin();
+
+        for (; respIt != element.node->content.resourcePrototype.responses.end(); ++respIt, ++smIt) {
+            NodeInfo<snowcrash::Response> info = NodeInfo<snowcrash::Response>(&*respIt, &*smIt);
+            content.push_back(PayloadToRefract(info, NodeInfo<snowcrash::Action>(), context));
+        }
+
+        resourcePrototype->element(SerializeKey::ResourcePrototype);
+        resourcePrototype->meta[SerializeKey::Title] = PrimitiveToRefract(MAKE_NODE_INFO(element, content.resourcePrototype.name));
+
+        if (!element.node->content.resourcePrototype.baseNames.empty()) {
+
+            refract::ArrayElement* baseNamesArray = new refract::ArrayElement;
+
+            const snowcrash::ResourcePrototypeNames& baseNames = element.node->content.resourcePrototype.baseNames;
+            for (auto nameIt = baseNames.begin(); nameIt != baseNames.end(); ++nameIt) {
+                baseNamesArray->push_back(refract::IElement::Create(*nameIt));
+            }
+
+            resourcePrototype->meta[SerializeKey::BaseNames] = baseNamesArray;
+        }
+
+        resourcePrototype->set(content);
+
+        return resourcePrototype;
+    }
+
     refract::IElement* ElementToRefract(const NodeInfo<snowcrash::Element>& element, ConversionContext& context)
     {
         switch (element.node->element) {
@@ -519,6 +555,8 @@ namespace drafter {
                 return CopyToRefract(MAKE_NODE_INFO(element, content.copy));
             case snowcrash::Element::CategoryElement:
                 return CategoryToRefract(element, context);
+            case snowcrash::Element::ResourcePrototypeElement:
+                return ResourcePrototypeToRefract(element, context);
             default:
                 // we are not able to get sourcemap info there
                 // It is strongly dependent on type of element.

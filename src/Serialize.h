@@ -70,6 +70,8 @@ namespace drafter {
         static const std::string Description;
         static const std::string DataStructure;
         static const std::string DataStructures;
+        static const std::string ResourcePrototypes;
+        static const std::string ResourcePrototype;
         static const std::string ResourceGroup;
         static const std::string ResourceGroups;
         static const std::string Resource;
@@ -131,6 +133,7 @@ namespace drafter {
         static const std::string Meta;
         static const std::string Title;
         static const std::string Classes;
+        static const std::string BaseNames;
 
         // Refract MSON attributes
         static const std::string Samples;
