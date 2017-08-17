@@ -11,6 +11,84 @@
       },
       "content": [
         {
+          "element": "resourcePrototypes",
+          "content": [
+            {
+              "element": "httpResponse",
+              "attributes": {
+                "statusCode": "404",
+                "headers": {
+                  "element": "httpHeaders",
+                  "content": [
+                    {
+                      "element": "member",
+                      "content": {
+                        "key": {
+                          "element": "string",
+                          "content": "Content-Type"
+                        },
+                        "value": {
+                          "element": "string",
+                          "content": "application/json"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "content": [
+                {
+                  "element": "dataStructure",
+                  "content": [
+                    {
+                      "element": "object",
+                      "content": [
+                        {
+                          "element": "member",
+                          "content": {
+                            "key": {
+                              "element": "string",
+                              "content": "status"
+                            },
+                            "value": {
+                              "element": "string",
+                              "content": "not_found"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "element": "asset",
+                  "meta": {
+                    "classes": [
+                      "messageBody"
+                    ]
+                  },
+                  "attributes": {
+                    "contentType": "application/json"
+                  },
+                  "content": "{\n  \"status\": \"not_found\"\n}"
+                },
+                {
+                  "element": "asset",
+                  "meta": {
+                    "classes": [
+                      "messageBodySchema"
+                    ]
+                  },
+                  "attributes": {
+                    "contentType": "application/schema+json"
+                  },
+                  "content": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\"\n    }\n  }\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "element": "category",
           "meta": {
             "classes": [
@@ -21,19 +99,7 @@
           "content": [
             {
               "element": "copy",
-              "content": "This group should have only common response 500"
-            },
-            {
-              "element": "commonData",
-              "content": [
-                {
-                  "element": "httpResponse",
-                  "attributes": {
-                    "statusCode": "500"
-                  },
-                  "content": []
-                }
-              ]
+              "content": "Actions of this section should have common response 404"
             },
             {
               "element": "resource",
@@ -63,9 +129,75 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "500"
+                            "statusCode": "404",
+                            "headers": {
+                              "element": "httpHeaders",
+                              "content": [
+                                {
+                                  "element": "member",
+                                  "content": {
+                                    "key": {
+                                      "element": "string",
+                                      "content": "Content-Type"
+                                    },
+                                    "value": {
+                                      "element": "string",
+                                      "content": "application/json"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
                           },
-                          "content": []
+                          "content": [
+                            {
+                              "element": "dataStructure",
+                              "content": [
+                                {
+                                  "element": "object",
+                                  "content": [
+                                    {
+                                      "element": "member",
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "status"
+                                        },
+                                        "value": {
+                                          "element": "string",
+                                          "content": "not_found"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "element": "asset",
+                              "meta": {
+                                "classes": [
+                                  "messageBody"
+                                ]
+                              },
+                              "attributes": {
+                                "contentType": "application/json"
+                              },
+                              "content": "{\n  \"status\": \"not_found\"\n}"
+                            },
+                            {
+                              "element": "asset",
+                              "meta": {
+                                "classes": [
+                                  "messageBodySchema"
+                                ]
+                              },
+                              "attributes": {
+                                "contentType": "application/schema+json"
+                              },
+                              "content": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\"\n    }\n  }\n}"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -154,67 +286,14 @@
                       ]
                     }
                   ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "element": "category",
-          "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Comments"
-          },
-          "content": [
-            {
-              "element": "copy",
-              "content": "This group should have only common response 404"
-            },
-            {
-              "element": "commonData",
-              "content": [
-                {
-                  "element": "httpResponse",
-                  "attributes": {
-                    "statusCode": "404",
-                    "headers": {
-                      "element": "httpHeaders",
-                      "content": [
-                        {
-                          "element": "member",
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "Content-Type"
-                            },
-                            "value": {
-                              "element": "string",
-                              "content": "application/json"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  "content": []
-                }
-              ]
-            },
-            {
-              "element": "resource",
-              "meta": {
-                "title": "Comment"
-              },
-              "attributes": {
-                "href": "/comments"
-              },
-              "content": [
+                },
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "List all comments"
+                    "title": "User info"
+                  },
+                  "attributes": {
+                    "href": "/users/{id}"
                   },
                   "content": [
                     {
@@ -250,7 +329,55 @@
                               ]
                             }
                           },
-                          "content": []
+                          "content": [
+                            {
+                              "element": "dataStructure",
+                              "content": [
+                                {
+                                  "element": "object",
+                                  "content": [
+                                    {
+                                      "element": "member",
+                                      "content": {
+                                        "key": {
+                                          "element": "string",
+                                          "content": "status"
+                                        },
+                                        "value": {
+                                          "element": "string",
+                                          "content": "not_found"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "element": "asset",
+                              "meta": {
+                                "classes": [
+                                  "messageBody"
+                                ]
+                              },
+                              "attributes": {
+                                "contentType": "application/json"
+                              },
+                              "content": "{\n  \"status\": \"not_found\"\n}"
+                            },
+                            {
+                              "element": "asset",
+                              "meta": {
+                                "classes": [
+                                  "messageBodySchema"
+                                ]
+                              },
+                              "attributes": {
+                                "contentType": "application/schema+json"
+                              },
+                              "content": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\"\n    }\n  }\n}"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -299,10 +426,10 @@
                                       "content": {
                                         "key": {
                                           "element": "string",
-                                          "content": "comments"
+                                          "content": "user"
                                         },
                                         "value": {
-                                          "element": "array"
+                                          "element": "object"
                                         }
                                       }
                                     }
@@ -320,7 +447,7 @@
                               "attributes": {
                                 "contentType": "application/json"
                               },
-                              "content": "{\n  \"comments\": []\n}"
+                              "content": "{\n  \"user\": {}\n}"
                             },
                             {
                               "element": "asset",
@@ -332,7 +459,7 @@
                               "attributes": {
                                 "contentType": "application/schema+json"
                               },
-                              "content": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"comments\": {}\n  }\n}"
+                              "content": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"user\": {\n      \"type\": \"object\",\n      \"properties\": {}\n    }\n  }\n}"
                             }
                           ]
                         }

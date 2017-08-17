@@ -11,7 +11,7 @@
       },
       "content": [
         {
-          "element": "commonData",
+          "element": "resourcePrototypes",
           "content": [
             {
               "element": "httpResponse",
@@ -102,7 +102,7 @@
               "content": "Actions of this section should have both common responses"
             },
             {
-              "element": "commonData",
+              "element": "resourcePrototypes",
               "content": [
                 {
                   "element": "httpResponse",
