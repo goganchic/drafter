@@ -536,7 +536,11 @@ namespace drafter {
 
         resourcePrototype->element(SerializeKey::ResourcePrototype);
         resourcePrototype->meta[SerializeKey::Title] = PrimitiveToRefract(MAKE_NODE_INFO(element, content.resourcePrototype.name));
-        resourcePrototype->meta[SerializeKey::BaseName] = PrimitiveToRefract(MAKE_NODE_INFO(element, content.resourcePrototype.baseName));
+
+        if (!element.node->content.resourcePrototype.baseName.empty()) {
+            resourcePrototype->meta[SerializeKey::BaseName] = PrimitiveToRefract(MAKE_NODE_INFO(element, content.resourcePrototype.baseName));
+        }
+
         resourcePrototype->set(content);
 
         return resourcePrototype;
