@@ -526,16 +526,17 @@ namespace drafter {
         refract::ArrayElement* resourcePrototype = new refract::ArrayElement;
         RefractElements content;
 
-        auto respIt = element.node->content.resourcePrototypeDefinition.responses.begin();
+        auto respIt = element.node->content.resourcePrototype.responses.begin();
         auto smIt = element.sourceMap->content.resourcePrototype.responses.collection.begin();
 
-        for (; respIt != element.node->content.resourcePrototypeDefinition.responses.end(); ++respIt, ++smIt) {
+        for (; respIt != element.node->content.resourcePrototype.responses.end(); ++respIt, ++smIt) {
             NodeInfo<snowcrash::Response> info = NodeInfo<snowcrash::Response>(&*respIt, &*smIt);
             content.push_back(PayloadToRefract(info, NodeInfo<snowcrash::Action>(), context));
         }
 
         resourcePrototype->element(SerializeKey::ResourcePrototype);
-        resourcePrototype->meta[SerializeKey::Title] = PrimitiveToRefract(MAKE_NODE_INFO(element, attributes.name));
+        resourcePrototype->meta[SerializeKey::Title] = PrimitiveToRefract(MAKE_NODE_INFO(element, content.resourcePrototype.name));
+        resourcePrototype->meta[SerializeKey::BaseName] = PrimitiveToRefract(MAKE_NODE_INFO(element, content.resourcePrototype.baseName));
         resourcePrototype->set(content);
 
         return resourcePrototype;

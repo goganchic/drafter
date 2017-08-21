@@ -126,6 +126,7 @@ namespace drafter {
         static const std::string Meta;
         static const std::string Title;
         static const std::string Classes;
+        static const std::string BaseName;
 
         // Refract MSON attributes
         static const std::string Samples;
