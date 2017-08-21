@@ -1,12 +1,18 @@
 # API name
 
-# Group Users
+# Resource Prototypes
 
-This group should have only common response 500
-
-## Resource Prototypes
+## InternalError
 
 + Response 500
+
+## NotFound
+
++ Response 404
+
+# Group Users (InternalError)
+
+This group should have only common response 500
 
 ## User [/users]
 
@@ -16,13 +22,9 @@ This group should have only common response 500
     + Attributes
         + users (array)
 
-# Group Comments
+# Group Comments (NotFound)
 
 This group should have only common response 404
-
-## Resource Prototypes
-
-+ Response 404 (application/json)
 
 ## Comment [/comments]
 

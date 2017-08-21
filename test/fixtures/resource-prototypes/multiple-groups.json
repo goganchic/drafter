@@ -14,17 +14,15 @@
           "element": "category",
           "meta": {
             "classes": [
-              "resourceGroup"
-            ],
-            "title": "Users"
+              "resourcePrototypes"
+            ]
           },
           "content": [
             {
-              "element": "copy",
-              "content": "This group should have only common response 500"
-            },
-            {
-              "element": "resourcePrototypes",
+              "element": "resourcePrototype",
+              "meta": {
+                "title": "InternalError"
+              },
               "content": [
                 {
                   "element": "httpResponse",
@@ -34,6 +32,36 @@
                   "content": []
                 }
               ]
+            },
+            {
+              "element": "resourcePrototype",
+              "meta": {
+                "title": "NotFound"
+              },
+              "content": [
+                {
+                  "element": "httpResponse",
+                  "attributes": {
+                    "statusCode": "404"
+                  },
+                  "content": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "element": "category",
+          "meta": {
+            "classes": [
+              "resourceGroup"
+            ],
+            "title": "Users"
+          },
+          "content": [
+            {
+              "element": "copy",
+              "content": "This group should have only common response 500"
             },
             {
               "element": "resource",
@@ -173,36 +201,6 @@
               "content": "This group should have only common response 404"
             },
             {
-              "element": "resourcePrototypes",
-              "content": [
-                {
-                  "element": "httpResponse",
-                  "attributes": {
-                    "statusCode": "404",
-                    "headers": {
-                      "element": "httpHeaders",
-                      "content": [
-                        {
-                          "element": "member",
-                          "content": {
-                            "key": {
-                              "element": "string",
-                              "content": "Content-Type"
-                            },
-                            "value": {
-                              "element": "string",
-                              "content": "application/json"
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  "content": []
-                }
-              ]
-            },
-            {
               "element": "resource",
               "meta": {
                 "title": "Comment"
@@ -230,25 +228,7 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "404",
-                            "headers": {
-                              "element": "httpHeaders",
-                              "content": [
-                                {
-                                  "element": "member",
-                                  "content": {
-                                    "key": {
-                                      "element": "string",
-                                      "content": "Content-Type"
-                                    },
-                                    "value": {
-                                      "element": "string",
-                                      "content": "application/json"
-                                    }
-                                  }
-                                }
-                              ]
-                            }
+                            "statusCode": "404"
                           },
                           "content": []
                         }

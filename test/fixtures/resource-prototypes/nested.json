@@ -11,78 +11,106 @@
       },
       "content": [
         {
-          "element": "resourcePrototypes",
+          "element": "category",
+          "meta": {
+            "classes": [
+              "resourcePrototypes"
+            ]
+          },
           "content": [
             {
-              "element": "httpResponse",
-              "attributes": {
-                "statusCode": "404",
-                "headers": {
-                  "element": "httpHeaders",
-                  "content": [
-                    {
-                      "element": "member",
-                      "content": {
-                        "key": {
-                          "element": "string",
-                          "content": "Content-Type"
-                        },
-                        "value": {
-                          "element": "string",
-                          "content": "application/json"
-                        }
-                      }
-                    }
-                  ]
-                }
+              "element": "resourcePrototype",
+              "meta": {
+                "title": "NotFound"
               },
               "content": [
                 {
-                  "element": "dataStructure",
-                  "content": [
-                    {
-                      "element": "object",
+                  "element": "httpResponse",
+                  "attributes": {
+                    "statusCode": "404",
+                    "headers": {
+                      "element": "httpHeaders",
                       "content": [
                         {
                           "element": "member",
                           "content": {
                             "key": {
                               "element": "string",
-                              "content": "status"
+                              "content": "Content-Type"
                             },
                             "value": {
                               "element": "string",
-                              "content": "not_found"
+                              "content": "application/json"
                             }
                           }
                         }
                       ]
                     }
+                  },
+                  "content": [
+                    {
+                      "element": "dataStructure",
+                      "content": [
+                        {
+                          "element": "object",
+                          "content": [
+                            {
+                              "element": "member",
+                              "content": {
+                                "key": {
+                                  "element": "string",
+                                  "content": "status"
+                                },
+                                "value": {
+                                  "element": "string",
+                                  "content": "not_found"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "element": "asset",
+                      "meta": {
+                        "classes": [
+                          "messageBody"
+                        ]
+                      },
+                      "attributes": {
+                        "contentType": "application/json"
+                      },
+                      "content": "{\n  \"status\": \"not_found\"\n}"
+                    },
+                    {
+                      "element": "asset",
+                      "meta": {
+                        "classes": [
+                          "messageBodySchema"
+                        ]
+                      },
+                      "attributes": {
+                        "contentType": "application/schema+json"
+                      },
+                      "content": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\"\n    }\n  }\n}"
+                    }
                   ]
-                },
+                }
+              ]
+            },
+            {
+              "element": "resourcePrototype",
+              "meta": {
+                "title": "InternalError"
+              },
+              "content": [
                 {
-                  "element": "asset",
-                  "meta": {
-                    "classes": [
-                      "messageBody"
-                    ]
-                  },
+                  "element": "httpResponse",
                   "attributes": {
-                    "contentType": "application/json"
+                    "statusCode": "500"
                   },
-                  "content": "{\n  \"status\": \"not_found\"\n}"
-                },
-                {
-                  "element": "asset",
-                  "meta": {
-                    "classes": [
-                      "messageBodySchema"
-                    ]
-                  },
-                  "attributes": {
-                    "contentType": "application/schema+json"
-                  },
-                  "content": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"status\": {\n      \"type\": \"string\"\n    }\n  }\n}"
+                  "content": []
                 }
               ]
             }
@@ -100,18 +128,6 @@
             {
               "element": "copy",
               "content": "Actions of this section should have both common responses"
-            },
-            {
-              "element": "resourcePrototypes",
-              "content": [
-                {
-                  "element": "httpResponse",
-                  "attributes": {
-                    "statusCode": "500"
-                  },
-                  "content": []
-                }
-              ]
             },
             {
               "element": "resource",
