@@ -21,21 +21,6 @@
             {
               "element": "resourcePrototype",
               "meta": {
-                "title": "InternalError"
-              },
-              "content": [
-                {
-                  "element": "httpResponse",
-                  "attributes": {
-                    "statusCode": "500"
-                  },
-                  "content": []
-                }
-              ]
-            },
-            {
-              "element": "resourcePrototype",
-              "meta": {
                 "title": "NotFound"
               },
               "content": [
@@ -61,7 +46,7 @@
           "content": [
             {
               "element": "copy",
-              "content": "This group should have only common response 500"
+              "content": "Action of this section should have 404 from NotFound prototype"
             },
             {
               "element": "resource",
@@ -76,78 +61,6 @@
                   "element": "transition",
                   "meta": {
                     "title": "List all users"
-                  },
-                  "content": [
-                    {
-                      "element": "httpTransaction",
-                      "content": [
-                        {
-                          "element": "httpRequest",
-                          "attributes": {
-                            "method": "GET"
-                          },
-                          "content": []
-                        },
-                        {
-                          "element": "httpResponse",
-                          "attributes": {
-                            "statusCode": "500"
-                          },
-                          "content": []
-                        }
-                      ]
-                    },
-                    {
-                      "element": "httpTransaction",
-                      "content": [
-                        {
-                          "element": "httpRequest",
-                          "attributes": {
-                            "method": "GET"
-                          },
-                          "content": []
-                        },
-                        {
-                          "element": "httpResponse",
-                          "attributes": {
-                            "statusCode": "200"
-                          },
-                          "content": []
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "element": "category",
-          "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Comments"
-          },
-          "content": [
-            {
-              "element": "copy",
-              "content": "This group should have only common response 404"
-            },
-            {
-              "element": "resource",
-              "meta": {
-                "title": "Comment"
-              },
-              "attributes": {
-                "href": "/comments"
-              },
-              "content": [
-                {
-                  "element": "transition",
-                  "meta": {
-                    "title": "List all comments"
                   },
                   "content": [
                     {

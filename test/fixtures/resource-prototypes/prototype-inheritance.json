@@ -21,9 +21,16 @@
             {
               "element": "resourcePrototype",
               "meta": {
-                "title": "InternalError"
+                "title": "Errors"
               },
               "content": [
+                {
+                  "element": "httpResponse",
+                  "attributes": {
+                    "statusCode": "404"
+                  },
+                  "content": []
+                },
                 {
                   "element": "httpResponse",
                   "attributes": {
@@ -36,13 +43,14 @@
             {
               "element": "resourcePrototype",
               "meta": {
-                "title": "NotFound"
+                "title": "Common",
+                "baseClass": "Errors"
               },
               "content": [
                 {
                   "element": "httpResponse",
                   "attributes": {
-                    "statusCode": "404"
+                    "statusCode": "302"
                   },
                   "content": []
                 }
@@ -60,13 +68,9 @@
           },
           "content": [
             {
-              "element": "copy",
-              "content": "This group should have only common response 500"
-            },
-            {
               "element": "resource",
               "meta": {
-                "title": "User"
+                "title": "Users"
               },
               "attributes": {
                 "href": "/users"
@@ -75,7 +79,10 @@
                 {
                   "element": "transition",
                   "meta": {
-                    "title": "List all users"
+                    "title": "Users"
+                  },
+                  "attributes": {
+                    "href": "/users"
                   },
                   "content": [
                     {
@@ -91,7 +98,7 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "500"
+                            "statusCode": "302"
                           },
                           "content": []
                         }
@@ -110,46 +117,12 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "200"
+                            "statusCode": "404"
                           },
                           "content": []
                         }
                       ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "element": "category",
-          "meta": {
-            "classes": [
-              "resourceGroup"
-            ],
-            "title": "Comments"
-          },
-          "content": [
-            {
-              "element": "copy",
-              "content": "This group should have only common response 404"
-            },
-            {
-              "element": "resource",
-              "meta": {
-                "title": "Comment"
-              },
-              "attributes": {
-                "href": "/comments"
-              },
-              "content": [
-                {
-                  "element": "transition",
-                  "meta": {
-                    "title": "List all comments"
-                  },
-                  "content": [
+                    },
                     {
                       "element": "httpTransaction",
                       "content": [
@@ -163,7 +136,7 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "404"
+                            "statusCode": "500"
                           },
                           "content": []
                         }
