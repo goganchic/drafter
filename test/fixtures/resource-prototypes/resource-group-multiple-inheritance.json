@@ -21,7 +21,7 @@
             {
               "element": "resourcePrototype",
               "meta": {
-                "title": "Errors"
+                "title": "NotFound"
               },
               "content": [
                 {
@@ -30,29 +30,19 @@
                     "statusCode": "404"
                   },
                   "content": []
-                },
-                {
-                  "element": "httpResponse",
-                  "attributes": {
-                    "statusCode": "500"
-                  },
-                  "content": []
                 }
               ]
             },
             {
               "element": "resourcePrototype",
               "meta": {
-                "title": "Common",
-                "baseNames": [
-                  "Errors"
-                ]
+                "title": "InternalError"
               },
               "content": [
                 {
                   "element": "httpResponse",
                   "attributes": {
-                    "statusCode": "302"
+                    "statusCode": "500"
                   },
                   "content": []
                 }
@@ -87,25 +77,6 @@
                     "href": "/users"
                   },
                   "content": [
-                    {
-                      "element": "httpTransaction",
-                      "content": [
-                        {
-                          "element": "httpRequest",
-                          "attributes": {
-                            "method": "GET"
-                          },
-                          "content": []
-                        },
-                        {
-                          "element": "httpResponse",
-                          "attributes": {
-                            "statusCode": "302"
-                          },
-                          "content": []
-                        }
-                      ]
-                    },
                     {
                       "element": "httpTransaction",
                       "content": [

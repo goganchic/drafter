@@ -10,3 +10,6 @@ TEST_REFRACT("resource-prototypes", "named-resource");
 TEST_REFRACT("resource-prototypes", "resource-named-endpoint");
 TEST_REFRACT("resource-prototypes", "group-and-resource");
 TEST_REFRACT("resource-prototypes", "prototype-inheritance");
+TEST_REFRACT("resource-prototypes", "prototype-inheritance-complex");
+TEST_REFRACT("resource-prototypes", "resource-group-multiple-inheritance");
+TEST_REFRACT("resource-prototypes", "resource-multiple-inheritance");

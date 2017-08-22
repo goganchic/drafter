@@ -537,8 +537,16 @@ namespace drafter {
         resourcePrototype->element(SerializeKey::ResourcePrototype);
         resourcePrototype->meta[SerializeKey::Title] = PrimitiveToRefract(MAKE_NODE_INFO(element, content.resourcePrototype.name));
 
-        if (!element.node->content.resourcePrototype.baseName.empty()) {
-            resourcePrototype->meta[SerializeKey::BaseName] = PrimitiveToRefract(MAKE_NODE_INFO(element, content.resourcePrototype.baseName));
+        if (!element.node->content.resourcePrototype.baseNames.empty()) {
+
+            refract::ArrayElement* baseNamesArray = new refract::ArrayElement;
+
+            const snowcrash::ResourcePrototypeNames& baseNames = element.node->content.resourcePrototype.baseNames;
+            for (auto nameIt = baseNames.begin(); nameIt != baseNames.end(); ++nameIt) {
+                baseNamesArray->push_back(refract::IElement::Create(*nameIt));
+            }
+
+            resourcePrototype->meta[SerializeKey::BaseNames] = baseNamesArray;
         }
 
         resourcePrototype->set(content);

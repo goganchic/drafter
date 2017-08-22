@@ -21,20 +21,17 @@
             {
               "element": "resourcePrototype",
               "meta": {
-                "title": "Errors"
+                "title": "A",
+                "baseNames": [
+                  "B",
+                  "C"
+                ]
               },
               "content": [
                 {
                   "element": "httpResponse",
                   "attributes": {
-                    "statusCode": "404"
-                  },
-                  "content": []
-                },
-                {
-                  "element": "httpResponse",
-                  "attributes": {
-                    "statusCode": "500"
+                    "statusCode": "200"
                   },
                   "content": []
                 }
@@ -43,16 +40,68 @@
             {
               "element": "resourcePrototype",
               "meta": {
-                "title": "Common",
+                "title": "B",
                 "baseNames": [
-                  "Errors"
+                  "D"
                 ]
               },
               "content": [
                 {
                   "element": "httpResponse",
                   "attributes": {
-                    "statusCode": "302"
+                    "statusCode": "201"
+                  },
+                  "content": []
+                }
+              ]
+            },
+            {
+              "element": "resourcePrototype",
+              "meta": {
+                "title": "C",
+                "baseNames": [
+                  "D",
+                  "E"
+                ]
+              },
+              "content": [
+                {
+                  "element": "httpResponse",
+                  "attributes": {
+                    "statusCode": "202"
+                  },
+                  "content": []
+                }
+              ]
+            },
+            {
+              "element": "resourcePrototype",
+              "meta": {
+                "title": "D",
+                "baseNames": [
+                  "E"
+                ]
+              },
+              "content": [
+                {
+                  "element": "httpResponse",
+                  "attributes": {
+                    "statusCode": "203"
+                  },
+                  "content": []
+                }
+              ]
+            },
+            {
+              "element": "resourcePrototype",
+              "meta": {
+                "title": "E"
+              },
+              "content": [
+                {
+                  "element": "httpResponse",
+                  "attributes": {
+                    "statusCode": "204"
                   },
                   "content": []
                 }
@@ -100,64 +149,102 @@
                         {
                           "element": "httpResponse",
                           "attributes": {
-                            "statusCode": "302"
-                          },
-                          "content": []
-                        }
-                      ]
-                    },
-                    {
-                      "element": "httpTransaction",
-                      "content": [
-                        {
-                          "element": "httpRequest",
-                          "attributes": {
-                            "method": "GET"
-                          },
-                          "content": []
-                        },
-                        {
-                          "element": "httpResponse",
-                          "attributes": {
-                            "statusCode": "404"
-                          },
-                          "content": []
-                        }
-                      ]
-                    },
-                    {
-                      "element": "httpTransaction",
-                      "content": [
-                        {
-                          "element": "httpRequest",
-                          "attributes": {
-                            "method": "GET"
-                          },
-                          "content": []
-                        },
-                        {
-                          "element": "httpResponse",
-                          "attributes": {
-                            "statusCode": "500"
-                          },
-                          "content": []
-                        }
-                      ]
-                    },
-                    {
-                      "element": "httpTransaction",
-                      "content": [
-                        {
-                          "element": "httpRequest",
-                          "attributes": {
-                            "method": "GET"
-                          },
-                          "content": []
-                        },
-                        {
-                          "element": "httpResponse",
-                          "attributes": {
                             "statusCode": "200"
+                          },
+                          "content": []
+                        }
+                      ]
+                    },
+                    {
+                      "element": "httpTransaction",
+                      "content": [
+                        {
+                          "element": "httpRequest",
+                          "attributes": {
+                            "method": "GET"
+                          },
+                          "content": []
+                        },
+                        {
+                          "element": "httpResponse",
+                          "attributes": {
+                            "statusCode": "201"
+                          },
+                          "content": []
+                        }
+                      ]
+                    },
+                    {
+                      "element": "httpTransaction",
+                      "content": [
+                        {
+                          "element": "httpRequest",
+                          "attributes": {
+                            "method": "GET"
+                          },
+                          "content": []
+                        },
+                        {
+                          "element": "httpResponse",
+                          "attributes": {
+                            "statusCode": "203"
+                          },
+                          "content": []
+                        }
+                      ]
+                    },
+                    {
+                      "element": "httpTransaction",
+                      "content": [
+                        {
+                          "element": "httpRequest",
+                          "attributes": {
+                            "method": "GET"
+                          },
+                          "content": []
+                        },
+                        {
+                          "element": "httpResponse",
+                          "attributes": {
+                            "statusCode": "204"
+                          },
+                          "content": []
+                        }
+                      ]
+                    },
+                    {
+                      "element": "httpTransaction",
+                      "content": [
+                        {
+                          "element": "httpRequest",
+                          "attributes": {
+                            "method": "GET"
+                          },
+                          "content": []
+                        },
+                        {
+                          "element": "httpResponse",
+                          "attributes": {
+                            "statusCode": "202"
+                          },
+                          "content": []
+                        }
+                      ]
+                    },
+                    {
+                      "element": "httpTransaction",
+                      "content": [
+                        {
+                          "element": "httpRequest",
+                          "attributes": {
+                            "method": "GET"
+                          },
+                          "content": []
+                        },
+                        {
+                          "element": "httpResponse",
+                          "attributes": {
+                            "statusCode": "302"
                           },
                           "content": []
                         }
